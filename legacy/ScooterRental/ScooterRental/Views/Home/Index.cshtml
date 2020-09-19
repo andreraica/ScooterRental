@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Scooter Rental";
+}
+
+<div class="jumbotron">
+    <h1>Scooter Rental System</h1>
+    <p class="lead">It is a monolithic legacy system built with MVC, Razor and .net Full Framework.</p>
+    <p><a href="https://github.com/andreraica/ScooterRental" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>1. Renting a scooter</h2>
+        <p>
+            Rent a scooter using your passport number.
+        </p>
+        <p>
+            <a class="btn btn-default" href="@Url.Action("Rent", "Scooter")">Rent Scooter &raquo;</a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>2. Turn back the scooter</h2>
+        <p>
+            Turn back the scooter that you got.
+        </p>
+        <p>
+            <a class="btn btn-default" href="@Url.Action("TurnBack", "Scooter")">Turn Back Scooter &raquo;</a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>3. Check Scooters</h2>
+        <p>Check the scooter status and localization.</p>
+        <p>
+            <a class="btn btn-default" href="@Url.Action("Check", "Scooter", 0)">Check Scooter &raquo;</a>
+        </p>
+    </div>
+</div>

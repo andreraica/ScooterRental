@@ -1,0 +1,56 @@
+﻿@model ScooterRental.Models.Monitor
+
+@{
+    ViewBag.Title = "Check a Scooter";
+}
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Check", "Scooter", FormMethod.Get))
+{
+    <p>
+        Scooter:
+        @Html.DropDownList("ScooterId", new List<SelectListItem>
+        {
+        new SelectListItem{ Text="Scooter 1", Value = "1" },
+        new SelectListItem{ Text="Scooter 2", Value = "2" },
+        new SelectListItem{ Text="Scooter 3", Value = "3" },
+        })
+    </p>
+    <p>
+        <input type="submit" value="Check &raquo;" class="btn btn-default" />
+    </p>
+}
+
+@if (Model != null)
+{
+    <table border="1" width="400px">
+        <tr>
+            <th>
+                Scooter
+            </th>
+            <th>
+                User Passport
+            </th>
+            <th>
+                Area
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Scooter @Model.Scooter.Id.ToString()
+            </td>
+            <td>
+                @Model.Scooter.User.PassportNumber.ToString()
+            </td>
+            <td>
+                Area @Model.LocationAreaId.ToString()
+            </td>
+        </tr>
+    </table>
+}
+
+<br />
+
+<address>
+    <strong>Code:</strong>   <a href="https://github.com/andreraica/ScooterRental">André Raiça Silva - GitHub</a><br />
+</address>

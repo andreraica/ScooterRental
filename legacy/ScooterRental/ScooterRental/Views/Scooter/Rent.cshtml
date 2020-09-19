@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Rent a Scooter";
+}
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Rent", "Scooter", FormMethod.Post))
+{
+    <p>
+        Passport:
+        @Html.TextBox("PassportNumber")
+    </p>
+    <p>
+        Scooter:
+        @Html.DropDownList("ScooterId", new List<SelectListItem>
+        {
+        new SelectListItem{ Text="Scooter 1", Value = "1" },
+        new SelectListItem{ Text="Scooter 2", Value = "2" },
+        new SelectListItem{ Text="Scooter 3", Value = "3" },
+        })
+    </p>
+    <p>
+        <input type="submit" value="Rent &raquo;" class="btn btn-default" />
+    </p>
+}
+
+<address>
+    <strong>Code:</strong>   <a href="https://github.com/andreraica/ScooterRental">André Raiça Silva - GitHub</a><br />
+</address>
