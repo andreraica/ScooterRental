@@ -59,6 +59,11 @@ namespace ScooterRental.Controllers
                 scooter.TurnBack();
 
                 this.scooterDal.Update(scooter);
+
+                //Monitor
+                var locationAreaId = new Random().Next(1, 200);
+                monitorDal.Insert(new Monitor(scooter, locationAreaId));
+
                 ViewBag.Alert = "The Scooted Was Turned Back";
             }
             catch (ApplicationException appEx)
