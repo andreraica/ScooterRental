@@ -5,9 +5,9 @@ entity "Scooter Controller"
 database "Scooter"
 database "Monitor"
 
-group Renting a scooter
+group Turning back a scooter
 
-"User" -> "Scooter Controller" : Post - Passport Number & Scooter ID
+"User" -> "Scooter Controller" : Post - Scooter ID
 
 activate "User" #FFBBBB
 
@@ -25,7 +25,7 @@ deactivate "Scooter"
 
 
 'update scooter
-"Scooter Controller" -> "Scooter": Update Scooter (rent)
+"Scooter Controller" -> "Scooter": Update Scooter (turn back)
 
 activate "Scooter" #FFBBBB
 
@@ -33,13 +33,12 @@ activate "Scooter" #FFBBBB
 
 deactivate "Scooter"
 
-
 'update monitor
-"Scooter Controller" -> "Monitor": Update Monitor
+"Scooter Controller" -> "Monitor": Insert Monitor
 
 activate "Monitor" #FFBBBB
 
-"Monitor" --> "Scooter Controller": Updated Monitor
+"Monitor" --> "Scooter Controller": Inserted Monitor
 
 deactivate "Monitor"
 

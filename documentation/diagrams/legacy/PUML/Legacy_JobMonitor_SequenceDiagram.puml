@@ -2,6 +2,7 @@
 
 control "Job Monitor"
 database "Scooter"
+database "Monitor"
 
 group Job monitor scooter location
 
@@ -17,14 +18,14 @@ activate "Scooter" #FFBBBB
 deactivate "Scooter"
 
 
-'update scooter
-"Job Monitor" -> "Scooter": Update unrented scooters location
+'insert scooter
+"Job Monitor" -> "Monitor": Insert rented Scooters location
 
-activate "Scooter" #FFBBBB
+activate "Monitor" #FFBBBB
 
-"Scooter" --> "Job Monitor": Updated Scooters
+"Monitor" --> "Job Monitor": Inserted location
 
-deactivate "Scooter"
+deactivate "Monitor"
 
 
 "Job Monitor" --> "Job Monitor": Retrigger each 1 min.

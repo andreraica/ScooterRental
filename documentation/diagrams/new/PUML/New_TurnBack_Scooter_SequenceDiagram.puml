@@ -9,10 +9,10 @@ entity "Scooter Service"
 database "Scooter"
 collections "Tracking Queue"
 
-group Renting a scooter
+group Turning back a scooter
 
 'user 
-"User" -> "Scooter Service" : Post - Passport Number
+"User" -> "Scooter Service" : Post - Scooter ID
 
 activate "User" #FFBBBB
 activate "Scooter Service" #FFBBBB
@@ -29,19 +29,18 @@ deactivate "Scooter"
 
 
 'update scooter
-"Scooter Service" -> "Scooter": Update Scooter (rent)
+"Scooter Service" -> "Scooter": Update Scooter (turn back)
 
 activate "Scooter" #FFBBBB
+
+'Request insert Tracking Queue
+"Scooter" --> "Tracking Queue": Event Insert Tracking Async
+
+activate "Tracking Queue"
 
 "Scooter" --> "Scooter Service": Updated Scooter
 
 deactivate "Scooter"
-
-
-'Request update Tracking Queue
-"Scooter Service" --> "Tracking Queue": Event Update Tracking Async
-
-activate "Tracking Queue" #FFBBBB
 
 
 'Finish

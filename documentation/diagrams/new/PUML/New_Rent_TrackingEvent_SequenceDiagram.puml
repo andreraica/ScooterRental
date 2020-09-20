@@ -13,7 +13,7 @@ group Tracking Event
 'Tracking Queue 
 "Tracking Queue" --> "Tracking Service" : Pop Update Scooter location
 
-activate "Tracking Queue" #FFBBBB
+activate "Tracking Queue"
 activate "Tracking Service" #FFBBBB
 
 
@@ -27,12 +27,12 @@ activate "Tracking" #FFBBBB
 deactivate "Tracking"
 
 
-'update scooter
-"Tracking Service" -> "Tracking": Update Scooter (location)
+'insert tracking
+"Tracking Service" -> "Tracking": Insert tracking location
 
 activate "Tracking" #FFBBBB
 
-"Tracking" --> "Tracking Service": Updated Scooter
+"Tracking" --> "Tracking Service": Inserted tracking
 
 deactivate "Tracking"
 

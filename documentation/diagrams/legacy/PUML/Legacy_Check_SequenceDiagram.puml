@@ -13,7 +13,6 @@ activate "User" #FFBBBB
 
 activate "Scooter Controller" #FFBBBB
 
-
 'check scooter
 "Scooter Controller" -> "Scooter": Select Scooter
 
@@ -27,8 +26,8 @@ activate "Monitor" #FFBBBB
 
 deactivate "Monitor"
 
-
-"Scooter" --> "Scooter Controller": Selected Scooter location
+'inner join
+"Scooter" --> "Scooter Controller": Latest Scooter location
 
 deactivate "Scooter"
 
