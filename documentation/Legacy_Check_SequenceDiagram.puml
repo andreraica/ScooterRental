@@ -1,0 +1,43 @@
+@startuml
+
+actor "User"
+entity "Scooter Controller"
+database "Scooter"
+database "Monitor"
+
+group Monitoring a scooter
+
+"User" -> "Scooter Controller" : Get - Scooter ID
+
+activate "User" #FFBBBB
+
+activate "Scooter Controller" #FFBBBB
+
+
+'check scooter
+"Scooter Controller" -> "Scooter": Select Scooter
+
+activate "Scooter" #FFBBBB
+
+"Scooter" -> "Monitor": Select lastest location
+
+activate "Monitor" #FFBBBB
+
+"Monitor" --> "Scooter": Selected location
+
+deactivate "Monitor"
+
+
+"Scooter" --> "Scooter Controller": Selected Scooter location
+
+deactivate "Scooter"
+
+"Scooter Controller" --> "User": Sucessful Message
+
+deactivate "Scooter Controller"
+
+deactivate "User"
+
+end
+
+@enduml

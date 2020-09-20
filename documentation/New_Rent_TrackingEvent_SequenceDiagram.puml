@@ -1,0 +1,45 @@
+@startuml
+
+skinparam handwritten true
+skinparam roundcorner 10
+skinparam sequenceArrowThickness 3
+
+collections "Tracking Queue"
+entity "Tracking Service"
+database "Tracking"
+
+group Tracking Event
+
+'Tracking Queue 
+"Tracking Queue" --> "Tracking Service" : Pop Update Scooter location
+
+activate "Tracking Queue" #FFBBBB
+activate "Tracking Service" #FFBBBB
+
+
+'check scooter
+"Tracking Service" -> "Tracking": Select Scooter
+
+activate "Tracking" #FFBBBB
+
+"Tracking" --> "Tracking Service": Selected Scooter
+
+deactivate "Tracking"
+
+
+'update scooter
+"Tracking Service" -> "Tracking": Update Scooter (location)
+
+activate "Tracking" #FFBBBB
+
+"Tracking" --> "Tracking Service": Updated Scooter
+
+deactivate "Tracking"
+
+'Finish
+deactivate "Tracking Service"
+deactivate "Tracking Queue"
+
+end
+
+@enduml

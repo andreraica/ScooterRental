@@ -1,0 +1,36 @@
+@startuml
+
+skinparam handwritten true
+skinparam roundcorner 10
+skinparam sequenceArrowThickness 3
+
+actor "User"
+entity "Tracking Service"
+database "Tracking"
+
+group Request a Tracking
+
+'user 
+"User" -> "Tracking Service" : Get - Scooter ID
+
+activate "User" #FFBBBB
+activate "Tracking Service" #FFBBBB
+
+
+'check Tracking
+"Tracking Service" -> "Tracking": Select Scooters
+
+activate "Tracking" #FFBBBB
+
+"Tracking" --> "Tracking Service": Latest Tracking
+
+deactivate "Tracking"
+
+'Finish
+"Tracking Service" --> "User": Response Tracking
+deactivate "Tracking Service"
+deactivate "User"
+
+end
+
+@enduml

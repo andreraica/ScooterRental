@@ -1,0 +1,29 @@
+@startuml
+
+skinparam handwritten true
+skinparam roundcorner 10
+skinparam sequenceArrowThickness 3
+
+control "Job Tracking"
+collections "Tracking Queue"
+
+group Turning back a scooter
+
+'Request update Tracking Queue
+"Job Tracking" --> "Tracking Queue": Event Update Tracking Async
+
+activate "Job Tracking" #FFBBBB
+
+activate "Tracking Queue" #FFBBBB
+
+"Job Tracking" --> "Job Tracking": Retrigger each 1 min.
+
+'Finish
+deactivate "Job Tracking"
+
+
+deactivate "Tracking Queue"
+
+end
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+
+actor "User"
+entity "Scooter Controller"
+database "Scooter"
+database "Monitor"
+
+group Turning back a scooter
+
+"User" -> "Scooter Controller" : Post - Scooter ID
+
+activate "User" #FFBBBB
+
+activate "Scooter Controller" #FFBBBB
+
+
+'check scooter
+"Scooter Controller" -> "Scooter": Select Scooter
+
+activate "Scooter" #FFBBBB
+
+"Scooter" --> "Scooter Controller": Selected Scooter
+
+deactivate "Scooter"
+
+
+'update scooter
+"Scooter Controller" -> "Scooter": Update Scooter (back)
+
+activate "Scooter" #FFBBBB
+
+"Scooter" --> "Scooter Controller": Updated Scooter
+
+deactivate "Scooter"
+
+'update monitor
+"Scooter Controller" -> "Monitor": Update Monitor
+
+activate "Monitor" #FFBBBB
+
+"Monitor" --> "Scooter Controller": Updated Monitor
+
+deactivate "Monitor"
+
+
+'finish
+"Scooter Controller" --> "User": Sucessful Message
+
+deactivate "Scooter Controller"
+
+deactivate "User"
+
+end
+
+@enduml

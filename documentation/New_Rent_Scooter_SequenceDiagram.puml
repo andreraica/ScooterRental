@@ -1,0 +1,56 @@
+@startuml
+
+skinparam handwritten true
+skinparam roundcorner 10
+skinparam sequenceArrowThickness 3
+
+actor "User"
+entity "Scooter Service"
+database "Scooter"
+collections "Tracking Queue"
+
+group Renting a scooter
+
+'user 
+"User" -> "Scooter Service" : Post - Passport Number
+
+activate "User" #FFBBBB
+activate "Scooter Service" #FFBBBB
+
+
+'check scooter
+"Scooter Service" -> "Scooter": Select Scooter
+
+activate "Scooter" #FFBBBB
+
+"Scooter" --> "Scooter Service": Selected Scooter
+
+deactivate "Scooter"
+
+
+'update scooter
+"Scooter Service" -> "Scooter": Update Scooter (rent)
+
+activate "Scooter" #FFBBBB
+
+"Scooter" --> "Scooter Service": Updated Scooter
+
+deactivate "Scooter"
+
+
+'Request update Tracking Queue
+"Scooter Service" --> "Tracking Queue": Event Update Tracking Async
+
+activate "Tracking Queue" #FFBBBB
+
+
+'Finish
+"Scooter Service" --> "User": Sucessful Message
+deactivate "Scooter Service"
+deactivate "User"
+
+deactivate "Tracking Queue"
+
+end
+
+@enduml

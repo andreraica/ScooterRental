@@ -1,0 +1,36 @@
+@startuml
+
+control "Job Monitor"
+database "Scooter"
+
+group Job monitor scooter location
+
+'check scooter
+"Job Monitor" -> "Scooter": Select all Scooters
+
+activate "Job Monitor" #FFBBBB
+
+activate "Scooter" #FFBBBB
+
+"Scooter" --> "Job Monitor": Selected Scooters
+
+deactivate "Scooter"
+
+
+'update scooter
+"Job Monitor" -> "Scooter": Update unrented scooters location
+
+activate "Scooter" #FFBBBB
+
+"Scooter" --> "Job Monitor": Updated Scooters
+
+deactivate "Scooter"
+
+
+"Job Monitor" --> "Job Monitor": Retrigger each 1 min.
+
+deactivate "Job Monitor"
+
+end
+
+@enduml
