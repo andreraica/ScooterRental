@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ScooterRental.Domain.Services</RootNamespace>
+    <AssemblyName>ScooterRental.Domain.Services</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Interfaces\Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\Domain.Models\Domain.Models.csproj" />
+    <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>

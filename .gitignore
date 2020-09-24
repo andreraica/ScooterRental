@@ -1,9 +1,5 @@
-*.swp
-*.*~
-project.lock.json
-.DS_Store
-*.pyc
-nupkg/
+# SQLite Data
+*.sqlite
 
 # Visual Studio Code
 .vscode
@@ -13,8 +9,13 @@ nupkg/
 *.user
 *.userosscache
 *.sln.docstates
+*.swp
+*.*~
+.DS_Store
+*.pyc
 
 # Build results
+[Nn]upkg/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -39,5 +40,6 @@ msbuild.wrn
 [Tt]est[Rr]esults*/
 [Bb]uild[Ll]og.*
 
-# Visual Studio 2015
+# Visual Studio
 .vs/
+project.lock.json
