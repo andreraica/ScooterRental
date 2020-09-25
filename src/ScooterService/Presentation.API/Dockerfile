@@ -1,5 +1,6 @@
 # dotnet publish -c Release -o publish
 
+# docker build -t andreraica/scooterrental_scooterservice .
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 ENV ASPNETCORE_ENVIRONMENT=Production
 ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
@@ -9,10 +10,11 @@ EXPOSE 44351
 COPY ./publish /publish
 WORKDIR /publish
 
-ENTRYPOINT ["dotnet", "ScooterRental.Presentation.WebAPI.dll"]
+ENTRYPOINT ["dotnet", "ScooterRental.Presentation.API.dll"]
 
-# docker build -t andreraica/ScooterRentalcalculator_webapi .
+# >>> Running <<<
+# docker run -p 44351:44351 andreraica/scooterrental_scooterservice -d
 
 # >>> Publishing <<<
 # docker login
-# docker push andreraica/ScooterRentalcalculator_webapi
+# docker push andreraica/scooterrental_scooterservice

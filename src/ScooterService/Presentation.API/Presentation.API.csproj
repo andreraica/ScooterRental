@@ -5,8 +5,8 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <UserSecretsId>c527858b-fecd-45e8-a87a-497b2244283b</UserSecretsId>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-    <RootNamespace>ScooterRental.Presentation.WebAPI</RootNamespace>
-    <AssemblyName>ScooterRental.Presentation.WebAPI</AssemblyName>
+    <RootNamespace>ScooterRental.Presentation.API</RootNamespace>
+    <AssemblyName>ScooterRental.Presentation.API</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.1916590" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.1" />
