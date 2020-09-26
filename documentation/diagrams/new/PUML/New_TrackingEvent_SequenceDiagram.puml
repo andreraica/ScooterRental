@@ -11,20 +11,16 @@ database "Tracking"
 group Tracking Event
 
 'Tracking Queue 
-"Tracking Queue" --> "Tracking Service" : Pop Update Scooter location
+
+loop every new queue item
 
 activate "Tracking Queue"
+
+"Tracking Queue" --> "Tracking Service" : Pop Update Scooter location
+
 activate "Tracking Service" #FFBBBB
 
-
-'check scooter
-"Tracking Service" -> "Tracking": Select Scooter
-
-activate "Tracking" #FFBBBB
-
-"Tracking" --> "Tracking Service": Selected Scooter
-
-deactivate "Tracking"
+end
 
 
 'insert tracking
