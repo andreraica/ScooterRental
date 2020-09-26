@@ -1,7 +1,5 @@
 ﻿namespace ScooterRental.Domain.Models
 {
-    using System;
-
     public class Tracking
     {
         public Tracking(int scooterId, int locationId)

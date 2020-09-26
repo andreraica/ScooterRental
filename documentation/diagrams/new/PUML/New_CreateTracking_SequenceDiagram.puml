@@ -1,0 +1,27 @@
+@startuml
+
+skinparam handwritten true
+skinparam roundcorner 10
+skinparam sequenceArrowThickness 3
+
+actor "GPS Tracking / User"
+collections "Tracking Queue"
+
+group Creating a Tracking
+
+'Request insert Tracking Queue
+"GPS Tracking / User" --> "Tracking Queue": Post - Event Insert Tracking Async
+
+activate "GPS Tracking / User" #FFBBBB
+
+activate "Tracking Queue"
+
+"GPS Tracking / User" --> "GPS Tracking / User": Retrigger each GPS update.
+
+'Finish
+deactivate "GPS Tracking / User"
+deactivate "Tracking Queue"
+
+end
+
+@enduml

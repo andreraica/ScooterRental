@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.IoC", "Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.API", "Presentation.API\Presentation.API.csproj", "{4417FD9D-6B62-49A2-8538-FD90FD3F0907}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunction.Tracking", "AzureFunction.Tracking\AzureFunction.Tracking.csproj", "{DD3A52E0-1278-481E-97D2-0D7F59A50368}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{4417FD9D-6B62-49A2-8538-FD90FD3F0907}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4417FD9D-6B62-49A2-8538-FD90FD3F0907}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4417FD9D-6B62-49A2-8538-FD90FD3F0907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3A52E0-1278-481E-97D2-0D7F59A50368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3A52E0-1278-481E-97D2-0D7F59A50368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3A52E0-1278-481E-97D2-0D7F59A50368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3A52E0-1278-481E-97D2-0D7F59A50368}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

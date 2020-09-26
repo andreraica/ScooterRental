@@ -30,6 +30,7 @@ namespace ScooterRental.Presentation.ScooterRental.WebAPI.Conrollers
         [HttpPost]
         public void Insert(int scooterId, int locationId)
         {
+            //ADD QUEUE
             trackingService.Insert(scooterId, locationId);
         }
     }
