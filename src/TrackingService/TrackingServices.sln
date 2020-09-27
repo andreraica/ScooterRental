@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction.Tracking", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.CrossCutting", "Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj", "{F33FEC59-3006-42D3-9354-DFD2EBD9EE96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Function", "Presentation.Function\Presentation.Function.csproj", "{E2DBA321-8B8A-4002-8012-50916A348054}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.Function", "Presentation.Function\Presentation.Function.csproj", "{E2DBA321-8B8A-4002-8012-50916A348054}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,12 +4,14 @@
     <AzureFunctionsVersion>v3</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.10" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.7" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain.Interfaces\Domain.Interfaces.csproj" />
     <ProjectReference Include="..\Domain.Services\Domain.Services.csproj" />
+    <ProjectReference Include="..\Infrastructure.IoC\Infrastructure.IoC.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

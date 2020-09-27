@@ -12,13 +12,15 @@
 
     public class Queue : IQueue
     {
+        private const string TrackingQueueConnectionString = "TRACKING_QUEUE_CONNECTION";
+        private const string TrackingQueueName = "TRACKING_QUEUE_NAME";
         private readonly IQueueClient queueClient;
 
         public Queue()
         {
             this.queueClient = new QueueClient(
-                Environment.GetEnvironmentVariable("TRACKING_QUEUE_CONNECTION"),
-                Environment.GetEnvironmentVariable("TRACKING_QUEUE_NAME"));
+                Environment.GetEnvironmentVariable(TrackingQueueConnectionString),
+                Environment.GetEnvironmentVariable(TrackingQueueName));
         }
 
         public async Task SendMessageAsync(TrackingMessage trackingMessage)
