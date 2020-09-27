@@ -1,6 +1,6 @@
 # dotnet publish -c Release -o publish
 
-# docker build -t andreraica/scooterrental_scooterservice .
+# docker build -t andreraica/scooterrental_scooterservice . 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 ENV ASPNETCORE_ENVIRONMENT=Production
 ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
@@ -20,5 +20,5 @@ ENTRYPOINT ["dotnet", "ScooterRental.Presentation.API.dll"]
 # docker push andreraica/scooterrental_scooterservice
 
 # Default Variables
-TRACKING_QUEUE_CONNECTION=
-TRACKING_QUEUE_CONNECTION=tracking
+# TRACKING_QUEUE_CONNECTION=
+# TRACKING_QUEUE_CONNECTION=tracking
