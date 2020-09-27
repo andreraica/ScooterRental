@@ -3,7 +3,6 @@
     using global::Infrastructure.CrossCutting.Interfaces;
     using global::Infrastructure.CrossCutting.MessageBroker;
 
-    using Microsoft.Azure.ServiceBus;
     using Microsoft.Extensions.DependencyInjection;
 
     using ScooterRental.Domain.Interfaces.Data.Repositories;
@@ -13,7 +12,6 @@
     using ScooterRental.Infrastructure.Data.Repositories;
     using ScooterRental.Infrastructure.IoC.Setting;
 
-    using System;
     using System.Configuration;
 
     public static class Injector
