@@ -1,31 +1,24 @@
 ﻿namespace ScooterRental.Domain.Services
 {
-    using Microsoft.Azure.ServiceBus;
-
-    using Newtonsoft.Json;
+    using global::Infrastructure.CrossCutting.Interfaces;
+    using global::Infrastructure.CrossCutting.MessageBroker;
 
     using ScooterRental.Domain.Interfaces.Data.Repositories;
-    using ScooterRental.Domain.Interfaces.IoC;
     using ScooterRental.Domain.Interfaces.Services;
     using ScooterRental.Domain.Models;
 
     using System;
-    using System.Text;
     using System.Threading.Tasks;
 
     public class ScooterService : IScooterService
     {
-        const string ServiceBusConnectionString = "Endpoint=sb://scotterrentalqueue.servicebus.windows.net/;SharedAccessKeyName=SystemUser;SharedAccessKey=lmQRuxHRnlkm5iBJBJN8NJnmewtTAMqFrLo1JiYPoFw=;";
-        const string QueueName = "tracking";
-        static IQueueClient queueClient;
-
         private readonly IScooterRepository scooterRepository;
-        private readonly ISettings settings;
+        private readonly IQueue queue;
 
-        public ScooterService(IScooterRepository scooterRepository, ISettings settings)
+        public ScooterService(IScooterRepository scooterRepository, IQueue queue)
         {
             this.scooterRepository = scooterRepository;
-            this.settings = settings;
+            this.queue = queue;
         }
 
         public Scooter Rent(int scooterId, string passportNumber)
@@ -66,34 +59,10 @@
 
         private void SendScooterLocation(int scooterId)
         {
-            var trackingMessage = new DTO.TrackingMessage(
+            var trackingMessage = new TrackingMessage(
                 scooterId, new Random().Next(1, 200));
 
-            Task.Run(() => this.SendMessageAsync(trackingMessage));
-        }
-
-        private async Task SendMessageAsync(DTO.TrackingMessage trackingMessage)
-        {
-            try
-            {
-                queueClient = new QueueClient(
-                    this.settings.GetAppSetting("TrackingQueueConnectionString"),
-                    this.settings.GetAppSetting("TrackingQueueName"));
-
-                var message = new Message(
-                    Encoding.UTF8.GetBytes(
-                        JsonConvert.SerializeObject(trackingMessage).ToString()
-                        )
-                    );
-
-                await queueClient.SendAsync(message).ConfigureAwait(false);
-
-                await queueClient.CloseAsync().ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            Task.Run(() => queue.SendMessageAsync(trackingMessage));
         }
     }
 }

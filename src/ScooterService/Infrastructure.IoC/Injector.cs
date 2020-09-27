@@ -1,7 +1,9 @@
 ﻿namespace ScooterRental.Infrastructure.IoC
 {
-    using System.Configuration;
+    using global::Infrastructure.CrossCutting.Interfaces;
+    using global::Infrastructure.CrossCutting.MessageBroker;
 
+    using Microsoft.Azure.ServiceBus;
     using Microsoft.Extensions.DependencyInjection;
 
     using ScooterRental.Domain.Interfaces.Data.Repositories;
@@ -11,12 +13,18 @@
     using ScooterRental.Infrastructure.Data.Repositories;
     using ScooterRental.Infrastructure.IoC.Setting;
 
+    using System;
+    using System.Configuration;
+
     public static class Injector
     {
         public static IServiceCollection Start(IServiceCollection services)
         {
             services.AddScoped<IScooterService, ScooterService>();
             services.AddScoped<IScooterRepository, ScooterRepository>();
+
+            // Message Broker
+            services.AddScoped<IQueue, Queue>();
 
             services.AddSingleton<ISettings>(new Settings()
             {

@@ -13,8 +13,12 @@ WORKDIR /publish
 ENTRYPOINT ["dotnet", "ScooterRental.Presentation.API.dll"]
 
 # >>> Running <<<
-# docker run -p 44351:44351 andreraica/scooterrental_scooterservice -d
+# docker run -p 44351:44351 andreraica/scooterrental_scooterservice -d -e TRACKING_QUEUE_CONNECTION='Endpoint=sb://<<ServiceBus>>.servicebus.windows.net/;SharedAccessKeyName=<<User>>;SharedAccessKey=<<Key>>;'
 
 # >>> Publishing <<<
 # docker login
 # docker push andreraica/scooterrental_scooterservice
+
+# Default Variables
+TRACKING_QUEUE_CONNECTION=
+TRACKING_QUEUE_CONNECTION=tracking

@@ -1,4 +1,4 @@
-﻿namespace ScooterRental.Domain.Services.DTO
+﻿namespace Infrastructure.CrossCutting.MessageBroker
 {
     public class TrackingMessage
     {
